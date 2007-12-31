@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>514</width>
+    <width>510</width>
     <height>234</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="newBook">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>10</y>
      <width>80</width>
      <height>21</height>
@@ -52,23 +52,13 @@
     <string>Progress:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="wordLine">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>100</y>
-     <width>101</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>491</width>
-     <height>21</height>
+     <x>160</x>
+     <y>80</y>
+     <width>181</width>
+     <height>31</height>
     </rect>
    </property>
   </widget>
@@ -88,10 +78,10 @@
   <widget class="QPushButton" name="buttonBack">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>100</y>
-     <width>80</width>
-     <height>21</height>
+     <x>10</x>
+     <y>80</y>
+     <width>141</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -101,10 +91,10 @@
   <widget class="QPushButton" name="buttonForward">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>100</y>
-     <width>80</width>
-     <height>21</height>
+     <x>350</x>
+     <y>80</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">

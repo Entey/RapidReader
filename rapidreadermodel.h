@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QObject>
+#include <QTimer>
 #include <memory>
 
 class RapidReaderStore;
@@ -15,11 +16,18 @@ public:
 
     // load new file and store in in the settings class
     void loadNewBook(const QString &path);
+
+    void dispatchInfo();
+    void startTimer();
+    void updateSpeed(int speed);
+
 signals:
     void showMessage(const QString &type, const QString &header, const QString &message);
+    void showWord(QString word);
 
 private:
     std::shared_ptr<RapidReaderStore> m_settings;
+    QTimer * m_timer;
 };
 
 #endif // RAPIDREADERMODEL_H

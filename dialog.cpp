@@ -20,17 +20,24 @@ MainDialog::~MainDialog()
 
 void MainDialog::updateDataFromStore()
 {
-
+    m_ui->wordLine->setText(m_store->m_currentBook[0]);
 }
+
+
+void MainDialog::updateWordLine(QString word)
+{
+    m_ui->wordLine->setText(word);
+}
+
 
 void MainDialog::on_speedUpButton_clicked()
 {
-
+    m_presenter->onSpeedUpdate(1);
 }
 
 void MainDialog::on_speedDownButton_clicked()
 {
-
+    m_presenter->onSpeedUpdate(-1);
 }
 
 void MainDialog::on_newBook_clicked()
@@ -50,5 +57,5 @@ void MainDialog::on_buttonForward_clicked()
 
 void MainDialog::on_buttonStart_clicked()
 {
-
+    m_presenter->onStartTimer();
 }

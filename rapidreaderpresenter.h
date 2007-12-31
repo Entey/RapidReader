@@ -28,6 +28,8 @@ public slots:
     // callback to show message from model
     void onShowMessage(const QString &type, const QString &header, const QString &message);
 
+    void onStartTimer();
+    void onSpeedUpdate(int i);
 private:
     std::shared_ptr<RapidReaderStore> m_store;
 

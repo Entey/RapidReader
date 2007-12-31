@@ -22,6 +22,7 @@ public:
     ~MainDialog();
 
     void updateDataFromStore();
+    void updateWordLine(QString word);
 
 private slots:
     void on_speedUpButton_clicked();
@@ -37,6 +38,5 @@ private:
     std::shared_ptr<RapidReaderStore> m_store;
     RapidReaderPresenter* m_presenter;
 };
-
 
 #endif // DIALOG_H

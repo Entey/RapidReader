@@ -2,6 +2,7 @@
 #include "ui_filesystemdialog.h"
 #include "rapidreaderstore.h"
 #include "rapidreaderpresenter.h"
+#include <QDebug>
 
 FileSystem::FileSystem(const std::shared_ptr<RapidReaderStore> &settings,
                        RapidReaderPresenter *presenter, QWidget* parent) :
@@ -13,7 +14,7 @@ FileSystem::FileSystem(const std::shared_ptr<RapidReaderStore> &settings,
     m_ui->setupUi(this);
 
     m_DirModel = new QFileSystemModel(this);
-    m_DirModel->setRootPath("C:/");
+    m_DirModel->setRootPath("C:/Users/Smooth/");
     m_DirModel->setFilter(QDir::NoDotAndDotDot | QDir::AllDirs);
 
     m_ui->treeView->setModel(m_DirModel);
@@ -28,7 +29,7 @@ FileSystem::FileSystem(const std::shared_ptr<RapidReaderStore> &settings,
 
 void FileSystem::on_treeView_clicked(const QModelIndex &index)
 {
-    QString path = m_DirModel->fileInfo(index).absolutePath();
+    QString path = m_DirModel->fileInfo(index).filePath();
     m_ui->listView->setRootIndex(m_FileModel->setRootPath(path));
 }
 

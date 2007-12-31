@@ -9,6 +9,10 @@
 RapidReaderModel::RapidReaderModel(const std::shared_ptr<RapidReaderStore> & settings)
     : m_settings(settings)
 {
+    m_settings->m_speed = 1;
+    m_settings->m_lineIter = m_settings->m_currentBook.cbegin();
+    m_timer = new QTimer(this);
+    connect(m_timer, &QTimer::timeout, this, &RapidReaderModel::dispatchInfo);
 }
 
 /*********************************************************************
@@ -31,13 +35,34 @@ void RapidReaderModel::loadNewBook(const QString &path)
     while(!stream.atEnd())
     {
         QString line = stream.readLine();
-        m_settings->m_current_book.append(line);
+        m_settings->m_currentBook.append(line.split(" "));
     }
-
-    qDebug() << m_settings->m_current_book;
-
-    qDebug() << "end";
-
+    m_settings->m_lineIter = m_settings->m_currentBook.cbegin();
     file.flush();
     file.close();
+}
+
+void RapidReaderModel::dispatchInfo()
+{
+    if(m_settings->m_lineIter != m_settings->m_currentBook.end())
+    {
+        qDebug() << *m_settings->m_lineIter;
+        emit showWord(*m_settings->m_lineIter++);
+        m_settings->m_lineIter++;
+    }
+    else
+    {
+        m_timer->stop();
+    }
+}
+
+void RapidReaderModel::updateSpeed(int speed)
+{
+    m_settings->m_speed += speed;
+    m_timer->setInterval(1000 * m_settings->m_speed);
+}
+
+void RapidReaderModel::startTimer()
+{
+    m_timer->start(1000 * m_settings->m_speed);
 }
