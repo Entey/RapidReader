@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="newBook">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -72,7 +72,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="buttonStart">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -85,7 +85,7 @@
     <string>Start</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="buttonBack">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -98,7 +98,7 @@
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="buttonForward">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -111,7 +111,7 @@
     <string>Forward</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="speedUpButton">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -121,10 +121,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>SpeadUp</string>
+    <string>SpeedUp</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="speedDownButton">
    <property name="geometry">
     <rect>
      <x>120</x>

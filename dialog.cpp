@@ -1,44 +1,54 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include "rapidreaderpresenter.h"
+#include "rapidreaderstore.h"
 
-Dialog::Dialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Dialog)
+MainDialog::MainDialog(const std::shared_ptr<RapidReaderStore> &store,
+    RapidReaderPresenter* presenter, QWidget *parent) :
+        QDialog(parent),
+        m_ui(new Ui::Dialog),
+        m_presenter(presenter),
+        m_store(store)
 {
-    ui->setupUi(this);
+   m_ui->setupUi(this);
 }
 
-Dialog::~Dialog()
+MainDialog::~MainDialog()
 {
-    delete ui;
+    delete m_ui;
 }
 
-void Dialog::on_pushButton_2_clicked()
-{
-
-}
-
-void Dialog::on_pushButton_3_clicked()
-{
-
-}
-
-void Dialog::on_pushButton_4_clicked()
+void MainDialog::updateDataFromStore()
 {
 
 }
 
-void Dialog::on_pushButton_5_clicked()
+void MainDialog::on_speedUpButton_clicked()
 {
 
 }
 
-void Dialog::on_pushButton_6_clicked()
+void MainDialog::on_speedDownButton_clicked()
 {
 
 }
 
-void Dialog::on_pushButton_clicked()
+void MainDialog::on_newBook_clicked()
+{
+    m_presenter->showFileReader();
+}
+
+void MainDialog::on_buttonBack_clicked()
+{
+
+}
+
+void MainDialog::on_buttonForward_clicked()
+{
+
+}
+
+void MainDialog::on_buttonStart_clicked()
 {
 
 }

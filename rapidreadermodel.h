@@ -2,15 +2,24 @@
 #define RAPIDREADERMODEL_H
 
 #include <QString>
+#include <QObject>
+#include <memory>
 
-class RapidReaderModel
+class RapidReaderStore;
+
+class RapidReaderModel : public QObject
 {
+    Q_OBJECT
 public:
-    RapidReaderModel();
+    RapidReaderModel(const std::shared_ptr<RapidReaderStore> & settings);
 
-    // load new file
-    void loadNewBook(QString path);
+    // load new file and store in in the settings class
+    void loadNewBook(const QString &path);
+signals:
+    void showMessage(const QString &type, const QString &header, const QString &message);
 
+private:
+    std::shared_ptr<RapidReaderStore> m_settings;
 };
 
 #endif // RAPIDREADERMODEL_H

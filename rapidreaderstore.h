@@ -1,12 +1,13 @@
-#ifndef RAPEADREADERSETTINGS_H
-#define RAPEADREADERSETTINGS_H
+#ifndef RAPIDREADERSTORE_H
+#define RAPIDREADERSTORE_H
 #include <QObject>
+#include <QStringList>
 
-class RapidReaderSettings : public QObject
+class RapidReaderStore : public QObject
 {
     Q_OBJECT
 public:
-    QString m_current_book;
+    QStringList m_current_book;
 };
 
-#endif // RAPEADREADERSETTINGS_H
+#endif // RAPIDREADERSTORE_H

@@ -1,13 +1,14 @@
 #include "filesystem.h"
 #include "ui_filesystemdialog.h"
-#include <QFile>
-#include <QStringList>
-#include <QTextStream>
-#include <QMessageBox>
+#include "rapidreaderstore.h"
+#include "rapidreaderpresenter.h"
 
-FileSystem::FileSystem(QWidget* parent) :
+FileSystem::FileSystem(const std::shared_ptr<RapidReaderStore> &settings,
+                       RapidReaderPresenter *presenter, QWidget* parent) :
     QDialog(parent),
-    m_ui(new Ui::FileSystemDialog)
+    m_ui(new Ui::FileSystemDialog),
+    m_settings(settings),
+    m_presenter(presenter)
 {
     m_ui->setupUi(this);
 
@@ -25,11 +26,6 @@ FileSystem::FileSystem(QWidget* parent) :
 
 }
 
-void FileSystem::onLaunch(const QString &path)
-{
-
-}
-
 void FileSystem::on_treeView_clicked(const QModelIndex &index)
 {
     QString path = m_DirModel->fileInfo(index).absolutePath();
@@ -38,19 +34,8 @@ void FileSystem::on_treeView_clicked(const QModelIndex &index)
 
 void FileSystem::on_listView_doubleClicked(const QModelIndex &index)
 {
-    QString path = m_DirModel->fileInfo(index).absolutePath();
+    QString path = m_DirModel->fileInfo(index).filePath();
 
-    QFile file(path);
-    if(!file.open(QFile::ReadOnly | QFile::Text))
-    {
-        QMessageBox::critical(this, "ERROR!", "Cannot open file!");
-        file.flush();
-        file.close();
-        return;
-    }
-
-
-
-    file.flush();
-    file.close();
+    m_presenter->readFile(path);
+    this->hide();
 }

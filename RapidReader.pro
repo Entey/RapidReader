@@ -27,13 +27,15 @@ SOURCES += \
         main.cpp \
         dialog.cpp \
     rapidreadermodel.cpp \
-    filesystem.cpp
+    filesystem.cpp \
+    rapidreaderpresenter.cpp
 
 HEADERS += \
         dialog.h \
     rapidreadermodel.h \
-    rapeadreadersettings.h \
-    filesystem.h
+    filesystem.h \
+    rapidreaderpresenter.h \
+    rapidreaderstore.h
 
 FORMS += \
         dialog.ui \
